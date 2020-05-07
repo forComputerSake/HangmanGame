@@ -1,0 +1,106 @@
+# include<iostream>
+#include<string>
+#include<time.h>
+#include<fstream>
+#include<cstdlib>
+#include "theHM.h"
+#include "Functions.h"
+
+using namespace std;
+
+
+
+// Construtor and deconstructor
+theHM::theHM()
+{
+}
+
+
+theHM::~theHM()
+{
+}
+
+// Gallows Definition
+void theHM::showGallows()
+{
+	gotoxy(47, 9);
+	cout << "---------------" << endl;
+	gotoxy(47, 10);
+	cout << "|             |" << endl;
+	gotoxy(47, 11);
+	cout << "|             |" << endl;
+	gotoxy(47, 12);
+	cout << "|" << endl;
+	gotoxy(47, 13);
+	cout << "|" << endl;
+	gotoxy(47, 14);
+	cout << "|" << endl;
+	gotoxy(47, 15);
+	cout << "|" << endl;
+	gotoxy(47, 16);
+	cout << "-----------------------" << endl;
+}
+
+//Defintions For the Hangman Parts.
+void theHM::HMhead()
+{
+	gotoxy(61, 12);
+	cout << "0" << endl;
+}
+
+void theHM::HMbody()
+{
+	gotoxy(60, 13);
+	cout << char(47) << "|" << char(92) << endl;
+}
+
+void theHM::HMlegs()
+{
+	gotoxy(61, 14);
+	cout << char(47) << char(92) << endl;
+}
+
+// Definitions For the Wordbank and Choosen Words
+void theHM::loadWords()
+{
+	int counter = 0;
+	ifstream wrdBnk;
+	wrdBnk.open("wordbank.txt");
+	if (!wrdBnk)
+	{
+		cout << "Error Finding Input file." << endl;
+		system("pause");
+		exit;
+		
+	}
+	while(!wrdBnk.eof())
+		{
+		wrdBnk >> wordbnk[counter];
+		counter++;
+		}
+		wrdBnk.close();
+}
+//Choose Hidden Word
+void theHM::hiddenWord()
+{
+	srand(time(NULL));
+	int randNum = rand() % 10 + 1;
+	HiddenWord = wordbnk[randNum];
+}
+//Show Wordbank
+void theHM::showBank()
+{
+	gotoxy(52, 18);
+	cout << "Word Bank:" << endl;
+	gotoxy(15, 19);
+	cout << "|-----------------------------------------------------------------------------------------|" << endl;
+	gotoxy(15, 20);
+	for (int i = 0; i < 10; i++)
+	{
+		cout << " " << wordbnk[i]<<"  ";
+	}
+	cout << endl;
+	gotoxy(15, 21);
+	cout << "|-----------------------------------------------------------------------------------------|" << endl;
+
+}
