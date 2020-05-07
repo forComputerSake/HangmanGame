@@ -1,0 +1,37 @@
+# include<iostream>
+#include<string>
+#include<time.h>
+#include<fstream>
+#include<cstdlib>
+#include "Functions.h"
+#pragma once
+
+using namespace std;
+
+// Starting Hangman base class (possible future improvement)
+class theHM
+{
+	
+  // After wordbank and Chosen Word choice, keep private
+private:
+	string wordbnk[10];
+public:
+	string HiddenWord;
+	theHM();
+	~theHM();
+	
+  // Shows Gallows 
+	void showGallows();
+
+// These Functions show different parts of hangman for wrong choice
+	void HMhead();
+	void HMbody();
+	void HMlegs();
+	
+  // These Functions load/show wordbank and select Chosen Word.
+	void loadWords();
+	void hiddenWord();
+	void showBank();
+	
+};
+
