@@ -1,0 +1,27 @@
+# include<iostream>
+#include<string>
+#include<time.h>
+#include<fstream>
+#include<Windows.h>
+#include<cstdlib>
+#pragma once
+
+using namespace std;
+
+//Winning Message.
+void WinningMessage();
+
+//Losing Message.
+void LosingMessage();
+
+//Message at the beginning of Game.
+void StartMessage();
+
+//This Message tells user a word has been chosen.
+void WordMessage();
+
+// Final messgage asking for Replay option.
+void FinalMessage();
+
+// Cursor Setting function
+void gotoxy(int column, int line);
