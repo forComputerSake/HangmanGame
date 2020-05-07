@@ -1,0 +1,107 @@
+#include<iostream>
+#include<string>
+#include<fstream>
+#include<time.h>
+#include<cstdlib>
+#include "theHM.h"
+#include "Functions.h"
+
+using namespace std;
+
+void main()
+{
+	theHM Hm;
+	int menuChoice=0;
+	string Ans1, Ans2, Ans3;
+	
+	StartMessage();
+	gotoxy(72, 19);
+	cin >> menuChoice;
+	
+	system("CLS");
+
+	if (menuChoice == 1) //If the Selected 1 At Main Menu this will run
+	{
+		WordMessage();
+		Hm.showGallows();
+		Hm.loadWords();
+		Hm.hiddenWord();
+		Hm.showBank();
+		
+		//Takes in First Guess
+		gotoxy(30, 22);
+		cout << "First Guess: ";
+		cin >> Ans1;
+		
+		// Checks First Guess against Hidden word.
+		if (Ans1 == Hm.HiddenWord)
+		{
+			system("CLS");
+			WinningMessage();
+			return;
+		}
+		
+		else
+		{
+			system("CLS");
+			Hm.showGallows();
+			Hm.HMhead();
+			Hm.showBank();
+			
+			//Takes in Second Guess.
+			gotoxy(30, 22);
+			cout << "Second Guess: ";
+			cin >> Ans2;
+			
+			// Checks Second Guess against Hidden Word
+			if (Ans2==Hm.HiddenWord)
+			{
+				system("CLS");
+				WinningMessage();
+				return;
+			}
+			
+			else
+			{
+				system("CLS");
+				Hm.showGallows();
+				Hm.HMhead();
+				Hm.HMbody();
+				Hm.showBank();
+				
+				//Takes in Third Guess.
+				gotoxy(30, 22);
+				cout << "Third Guess: ";
+				cin >> Ans3;
+				
+				// Checks Third Guess against Hidden Word
+				if (Ans3 == Hm.HiddenWord)
+				{
+					system("CLS");
+					WinningMessage();
+					return;
+				}
+				else
+				{
+					system("CLS");
+					LosingMessage();
+					Hm.showGallows();
+					Hm.HMhead();
+					Hm.HMbody();
+					Hm.HMlegs();
+
+				}
+			}
+
+
+		}
+	}
+	
+	else if(menuChoice == 2)// If they select 2 at Main Menu this will run
+	{
+		cout << " You Didn't want to Lose. I Get it. Thanks For Playing." << endl;
+		return;
+	}
+
+	cin.get();
+}
