@@ -1,0 +1,117 @@
+# include<iostream>
+#include<string>
+#include<fstream>
+#include<time.h>
+#include<Windows.h>
+#include<cstdlib>
+#include"theHM.h"
+#include "Functions.h"
+using namespace std;
+
+// Definitions of Functions Contained in Functions.h file
+
+void WinningMessage()
+{
+	gotoxy(39, 2);
+	cout << " |--------------------------------|" << endl;
+	gotoxy(40, 3);
+	cout << "|         Congratulations!       |" << endl;
+	gotoxy(40, 4);
+	cout << "|     You Saved an Innocent Man. |" << endl;
+	gotoxy(40, 5);
+	cout << "|             My Hero!           |" << endl;
+	gotoxy(39, 6);
+	cout << " |--------------------------------|" << endl;
+
+}
+
+void LosingMessage()
+{
+	gotoxy(39, 2);
+	cout << " |------------------------------------|" << endl;
+	gotoxy(40, 3);
+	cout << "|                Oh No!              |" << endl;
+	gotoxy(40, 4);
+	cout << "|     You Killed an Innocent Man.    |" << endl;
+	gotoxy(40, 5);
+	cout << "|             Why God Why!           |" << endl;
+	gotoxy(39, 6);
+	cout << " |------------------------------------|" << endl;
+
+}
+
+void StartMessage()
+{
+	gotoxy(37, 2);
+	cout << " |---------------------------------------|" << endl;
+	gotoxy(37, 3);
+	cout << " | Welcome to the game of Innocent Man!  |" << endl;
+	gotoxy(37, 4);
+	cout << " |---------------------------------------|" << endl;
+	gotoxy(40, 5);
+	cout << " |10 Words.|  |3 Guesses.|  |1 Man.|" << endl;
+	gotoxy(47, 7);
+	cout << "--------------------" << endl;
+	gotoxy(47, 8);
+	cout << "|                  |" << endl;
+	gotoxy(47, 9);
+	cout << "|                  |" << endl;
+	gotoxy(47, 10);
+	cout << "|" << endl;
+	gotoxy(47, 11);
+	cout << "|" << endl;
+	gotoxy(47, 12);
+	cout << "|" << endl;
+	gotoxy(47, 13);
+	cout << "|" << endl;
+	gotoxy(47, 14);
+	cout << "-----------------------" << endl;
+	gotoxy(66, 9);
+	cout << "0" << endl;
+	gotoxy(65, 10);
+	cout << char(47) << "|" << char(92) << endl;
+	gotoxy(66, 11);
+	cout << char(47) << char(92) << endl;
+	gotoxy(45, 16);
+	cout << "Which would you like to do?" << endl;
+	gotoxy(52, 17);
+	cout << "1. Play Game." << endl;
+	gotoxy(52, 18);
+	cout << "2. Quit." << endl;
+	gotoxy(45, 19);
+	cout << "Please enter either 1 or 2: " << endl;
+
+}
+
+void WordMessage()
+{
+	gotoxy(33, 2);
+	cout << " |-----------------------------------------------|" << endl;
+	gotoxy(33, 3);
+	cout << " |   Get Ready for the Game of Someone's Life    |" << endl;
+	gotoxy(34, 4);
+	cout << "|            A word has been chosen!            |" << endl;
+	gotoxy(34, 5);
+	cout << "|             Now it is your turn.              |" << endl;
+	gotoxy(34, 6);
+	cout << "|               Guess Carefully.                |" << endl;
+	gotoxy(33, 7);
+	cout << " |-----------------------------------------------|" << endl;
+
+}
+
+void FinalMessage()
+{
+}
+
+void gotoxy(int column, int line)
+{
+	COORD coord;
+	coord.X = column;
+	coord.Y = line;
+	SetConsoleCursorPosition(
+		GetStdHandle(STD_OUTPUT_HANDLE),
+		coord
+	);
+}
+
