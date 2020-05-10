@@ -8,18 +8,6 @@
 
 using namespace std;
 
-
-
-// Construtor and deconstructor
-theHM::theHM()
-{
-}
-
-
-theHM::~theHM()
-{
-}
-
 // Gallows Definition
 void theHM::showGallows()
 {
@@ -48,7 +36,25 @@ void theHM::HMhead()
 	cout << "0" << endl;
 }
 
-void theHM::HMbody()
+void theHM::lftArm()
+{
+	gotoxy(60, 13);
+	cout << char(47) << endl;
+}
+
+void theHM::rghtArm()
+{
+	gotoxy(62, 13);
+	cout << char(92) << endl;
+}
+
+void theHM::justBody()
+{
+	gotoxy(61, 13);
+	cout << "|" << endl;
+}
+
+void theHM::HMarmsbody()
 {
 	gotoxy(60, 13);
 	cout << char(47) << "|" << char(92) << endl;
@@ -71,14 +77,14 @@ void theHM::loadWords()
 		cout << "Error Finding Input file." << endl;
 		system("pause");
 		exit;
-		
+
 	}
-	while(!wrdBnk.eof())
-		{
+	while (!wrdBnk.eof())
+	{
 		wrdBnk >> wordbnk[counter];
 		counter++;
-		}
-		wrdBnk.close();
+	}
+	wrdBnk.close();
 }
 //Choose Hidden Word
 void theHM::hiddenWord()
@@ -97,7 +103,7 @@ void theHM::showBank()
 	gotoxy(15, 20);
 	for (int i = 0; i < 10; i++)
 	{
-		cout << " " << wordbnk[i]<<"  ";
+		cout << " " << wordbnk[i] << "  ";
 	}
 	cout << endl;
 	gotoxy(15, 21);
