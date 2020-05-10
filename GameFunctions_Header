@@ -17,11 +17,16 @@ void LosingMessage();
 //Message at the beginning of Game.
 void StartMessage();
 
+// Rules for Each Mode.
+void Rules();
+
+// Players Function
+void playerQ();
+
 //This Message tells user a word has been chosen.
 void WordMessage();
 
 // Final messgage asking for Replay option.
-void FinalMessage();
 
 // Cursor Setting function
 void gotoxy(int column, int line);
