@@ -1,4 +1,4 @@
-# include<iostream>
+#include<iostream>
 #include<string>
 #include<time.h>
 #include<fstream>
@@ -11,27 +11,28 @@ using namespace std;
 // Starting Hangman base class (possible future improvement)
 class theHM
 {
-	
-  // After wordbank and Chosen Word choice, keep private
+
+	// After wordbank and Chosen Word choice, keep private
 private:
 	string wordbnk[10];
 public:
 	string HiddenWord;
-	theHM();
-	~theHM();
-	
-  // Shows Gallows 
+
+	// Shows Gallows 
 	void showGallows();
 
-// These Functions show different parts of hangman for wrong choice
+	// These Functions show  parts of hangman used in one player mode for wrong choice (including legs funcions))
 	void HMhead();
-	void HMbody();
+	void lftArm();
+	void rghtArm();
+	void justBody();
+	// These Parts are Swapped out to in 2 player mode.
+	void HMarmsbody();
 	void HMlegs();
-	
-  // These Functions load/show wordbank and select Chosen Word.
+
+	// These Functions load/show wordbank and select Chosen Word.
 	void loadWords();
 	void hiddenWord();
 	void showBank();
-	
-};
 
+};
