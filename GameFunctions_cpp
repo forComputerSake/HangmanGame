@@ -48,8 +48,6 @@ void StartMessage()
 	cout << " | Welcome to the game of Innocent Man!  |" << endl;
 	gotoxy(37, 4);
 	cout << " |---------------------------------------|" << endl;
-	gotoxy(40, 5);
-	cout << " |10 Words.|  |3 Guesses.|  |1 Man.|" << endl;
 	gotoxy(47, 7);
 	cout << "--------------------" << endl;
 	gotoxy(47, 8);
@@ -83,6 +81,50 @@ void StartMessage()
 
 }
 
+void Rules()
+{
+	gotoxy(45, 12);
+	cout << "0" << endl;
+	gotoxy(44, 13);
+	cout << char(47) << "|" << char(92) << endl;
+	gotoxy(45, 14);
+	cout << char(47) << char(92) << endl;
+	gotoxy(53, 13);
+	cout << "OR" << endl;
+	gotoxy(61, 12);
+	cout << "0" << endl;
+	gotoxy(60, 13);
+	cout << char(47) << "|" << char(92) << endl;
+	gotoxy(61, 14);
+	cout << char(47) << char(92) << endl;
+	gotoxy(71, 12);
+	cout << "0" << endl;
+	gotoxy(70, 13);
+	cout << char(47) << "|" << char(92) << endl;
+	gotoxy(71, 14);
+	cout << char(47) << char(92) << endl;
+	gotoxy(20, 22);
+	cout << "Single Player Mode:" << endl;
+	gotoxy(22, 23);
+	cout << "In this mode, the player will have 5 tries to guess the correct answer" << endl;
+	gotoxy(20,24);
+	cout << "Two Player Mode:" << endl;
+	gotoxy(22, 25);
+	cout << "In this mode, Both players will have 3 tries to guess the correct answer " << endl;
+
+}
+
+void playerQ()
+{
+	gotoxy(45, 16);
+	cout << "How Many Players?" << endl;
+	gotoxy(52, 17);
+	cout << "1. One" << endl;
+	gotoxy(52, 18);
+	cout << "2. Two" << endl;
+	gotoxy(45, 19);
+}
+
 void WordMessage()
 {
 	gotoxy(33, 2);
@@ -98,10 +140,6 @@ void WordMessage()
 	gotoxy(33, 7);
 	cout << " |-----------------------------------------------|" << endl;
 
-}
-
-void FinalMessage()
-{
 }
 
 void gotoxy(int column, int line)
