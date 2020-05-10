@@ -11,71 +11,83 @@ using namespace std;
 void main()
 {
 	theHM Hm;
-	int menuChoice=0;
-	string Ans1, Ans2, Ans3;
-	
-	StartMessage();
-	gotoxy(72, 19);
-	cin >> menuChoice;
-	
-	system("CLS");
-
-	if (menuChoice == 1) //If the Selected 1 At Main Menu this will run
+	int menuChoice = 0;
+	int playerChoice = 0;
+	string P1guess, P2guess;
+	//----------------------------Start Screen
+	while (menuChoice != 1)
 	{
+		StartMessage();
+		gotoxy(72, 19);
+		cin >> menuChoice;
+	}
+
+	system("CLS"); 
+	//-----------------------------Rules and # of Players Choice 
+	Rules();
+	playerQ();
+	cin >> playerChoice;
+
+	system("CLS");
+	//------------------------------Game Screen
+	// ---------------------------------------------------One Player Game Engine
+	if (playerChoice == 1) 
+	{
+		cout << "One Player Mode" << endl;
 		WordMessage();
 		Hm.showGallows();
 		Hm.loadWords();
 		Hm.hiddenWord();
 		Hm.showBank();
-		
+
 		//Takes in First Guess
 		gotoxy(30, 22);
 		cout << "First Guess: ";
-		cin >> Ans1;
-		
+		cin >> P1guess;
+
 		// Checks First Guess against Hidden word.
-		if (Ans1 == Hm.HiddenWord)
+		if (P1guess == Hm.HiddenWord)
 		{
 			system("CLS");
 			WinningMessage();
 			return;
 		}
-		
+
 		else
 		{
 			system("CLS");
 			Hm.showGallows();
 			Hm.HMhead();
 			Hm.showBank();
-			
+
 			//Takes in Second Guess.
 			gotoxy(30, 22);
 			cout << "Second Guess: ";
-			cin >> Ans2;
-			
+			cin >> P1guess;
+
 			// Checks Second Guess against Hidden Word
-			if (Ans2==Hm.HiddenWord)
+			if (P1guess == Hm.HiddenWord)
 			{
 				system("CLS");
 				WinningMessage();
 				return;
 			}
-			
+
 			else
 			{
 				system("CLS");
 				Hm.showGallows();
 				Hm.HMhead();
-				Hm.HMbody();
+				Hm.justBody();
 				Hm.showBank();
-				
+
 				//Takes in Third Guess.
 				gotoxy(30, 22);
 				cout << "Third Guess: ";
-				cin >> Ans3;
-				
+				cin >> P1guess;
+
 				// Checks Third Guess against Hidden Word
-				if (Ans3 == Hm.HiddenWord)
+				if (P1guess == Hm.HiddenWord)
 				{
 					system("CLS");
 					WinningMessage();
@@ -84,10 +96,165 @@ void main()
 				else
 				{
 					system("CLS");
+					Hm.showGallows();
+					Hm.HMhead();
+					Hm.justBody();
+					Hm.lftArm();
+					Hm.showBank();
+
+					//Takes in forth Guess.
+					gotoxy(30, 22);
+					cout << "Forth Guess: ";
+					cin >> P1guess;
+					
+					if (P1guess == Hm.HiddenWord)
+					{
+						system("CLS");
+						WinningMessage();
+						return;
+					}
+					else
+					{
+						system("CLS");
+						Hm.showGallows();
+						Hm.HMhead();
+						Hm.justBody();
+						Hm.lftArm();
+						Hm.rghtArm();
+						Hm.showBank();
+
+						//Takes in Last Guess.
+						gotoxy(30, 22);
+						cout << "Forth Guess: ";
+						cin >> P1guess;
+						if (P1guess == Hm.HiddenWord)
+						{
+							system("CLS");
+							WinningMessage();
+							return;
+						}
+						else
+						{
+							system("CLS");
+							Hm.showGallows();
+							Hm.HMhead();
+							Hm.justBody();
+							Hm.lftArm();
+							Hm.rghtArm();
+							Hm.HMlegs();
+						}
+					}
+
+				}
+			}
+
+
+		}
+	}
+	//-------------------------------------------- 2 Player Game Engine
+	else if (playerChoice == 2)
+	{
+		cout << "Two Player Mode" << endl;
+		WordMessage();
+		Hm.showGallows();
+		Hm.loadWords();
+		Hm.hiddenWord();
+		Hm.showBank();
+
+		//Takes in First Guess from both players
+		gotoxy(30, 22);
+		cout << "Player One Guess: ";
+		cin >> P1guess;
+		gotoxy(30, 23);
+		cout << "Player Two Guess: ";
+		cin >> P2guess;
+
+		// Checks First Guess against Hidden word.
+		if (P1guess == Hm.HiddenWord)
+		{
+			system("CLS");
+			WinningMessage();
+			cout << "Player 1 is the winner" << endl;
+			return;
+		}
+		else if (P2guess == Hm.HiddenWord)
+		{
+			system("CLS");
+			WinningMessage();
+			cout << "Player 2 is the winner" << endl;
+			return;
+		}
+
+		else
+		{
+			system("CLS");
+			Hm.showGallows();
+			Hm.HMhead();
+			Hm.showBank();
+
+			//Takes in Second Guess from both players.
+			gotoxy(30, 22);
+			cout << " Player One Guess: ";
+			cin >> P1guess;
+			gotoxy(30, 23);
+			cout << "Player Two Guess: ";
+			cin >> P2guess;
+
+			// Checks Second Guess against Hidden Word
+			if (P1guess == Hm.HiddenWord)
+			{
+				system("CLS");
+				WinningMessage();
+				cout << "Player 1 is the winner" << endl;
+				return;
+			}
+			else if (P2guess == Hm.HiddenWord)
+			{
+				system("CLS");
+				WinningMessage();
+				cout << "Player 2 is the winner" << endl;
+				return;
+			}
+
+			else
+			{
+				system("CLS");
+				Hm.showGallows();
+				Hm.HMhead();
+				Hm.HMarmsbody();
+				Hm.showBank();
+
+				//Takes in Both Players Last Guess.
+				gotoxy(30, 22);
+				cout << "Player One Guess: ";
+				cin >> P1guess;
+				gotoxy(30, 23);
+				cout << "Player Two Guess: ";
+				cin >> P2guess;
+
+				// Checks Third Guess against Hidden Word
+				if (P1guess == Hm.HiddenWord)
+				{
+					system("CLS");
+					WinningMessage();
+					cout << "Player 1 is the winner" << endl;
+					return;
+				}
+				else if (P2guess == Hm.HiddenWord)
+				{
+					system("CLS");
+					WinningMessage();
+					cout << "Player 2 is the winner" << endl;
+					return;
+				}
+				
+				else
+				{
+					system("CLS");
 					LosingMessage();
 					Hm.showGallows();
 					Hm.HMhead();
-					Hm.HMbody();
+					Hm.HMarmsbody();
 					Hm.HMlegs();
 
 				}
@@ -96,12 +263,12 @@ void main()
 
 		}
 	}
-	
-	else if(menuChoice == 2)// If they select 2 at Main Menu this will run
+	else if (menuChoice == 2) // Option to quit the game at the start menu
 	{
 		cout << " You Didn't want to Lose. I Get it. Thanks For Playing." << endl;
 		return;
 	}
 
 	cin.get();
+
 }
